@@ -30,7 +30,9 @@ DIGITALOCEAN_TOKEN=<TOKEN> make clean
 > Do not forget remove volumes from digital Ocean if you do not need it
 
 ## Demo
-There is a demo video for the project on [Youtube](https://www.youtube.com/watch?v=9GhI34LqLhs)
+There is a demo video for the project on [Youtube](https://www.youtube.com/watch?v=9GhI34LqLhs) 
+
+*Please turn on subtitles!*
 
 1. Observe a k8s cluster managed by Digital Ocean and a Kubegres cluster
 2. Connect to Posgresql cluster and generate some data
