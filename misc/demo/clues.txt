@@ -1,0 +1,9 @@
+Screens:
+Observe: One. 
+- do-k8s-k9s
+Generate. Two. 
+- do-k8s-k9s && kubectl port-forward pg-default-cluster-1-0 :5432 5432
+- do-k8s-generate-data && do-k8s-psql
+Watch and Create. Two.
+- do-k8s-kubectl-watch
+- do-k8s-kubectl

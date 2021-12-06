@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backup-test
+spec:
+  volumes:
+    - name: pg-backup
+      persistentVolumeClaim:
+        claimName: pg-backup
+        readOnly: true
+    - name: home
+      emptyDir: {}
+  containers:
+    - name: task-pv-container
+      image: bash:latest
+      command: [ "bash", "-c", "--" ]
+      args: [ "while true; do sleep 30; done;" ]
+      volumeMounts:
+        - mountPath: "/backup"
+          name: pg-backup
+        - mountPath: "/home/user"
+          name: home

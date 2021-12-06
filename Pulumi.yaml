@@ -1,0 +1,3 @@
+name: do-k8s-challenge-kubegres
+runtime: go
+description: A Pulumi example for k8s challenge

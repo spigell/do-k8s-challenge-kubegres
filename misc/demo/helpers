@@ -1,0 +1,8 @@
+alias do-ks8-cl-watch='watch -n 1 doctl kubernetes cluster list  --format "Name,Version,Status,NodePools"'
+alias do-k8s-kubectl='pulumi stack output kubeconfig --show-secrets > /tmp/kube.yml && export KUBECONFIG=/tmp/kube.yml'
+alias do-k8s-kubectl-watch='pulumi stack output kubeconfig --show-secrets > /tmp/kube.yml && KUBECONFIG=/tmp/kube.yml kubectl get events --watch-only'
+alias do-k8s-k9s='pulumi stack output kubeconfig --show-secrets > /tmp/kube.yml && KUBECONFIG=/tmp/kube.yml k9s'
+alias do-k8s-pg-tunnel='pulumi stack output kubeconfig --show-secrets > /tmp/kube.yml && KUBECONFIG=/tmp/kube.yml kubectl port-forward  pg-default-cluster-1-0 :5432 5432'
+alias do-k8s-psql='PGPASSWORD=$(pulumi stack output pgpassword --show-secrets) psql -h 127.0.0.1 -p 5432 -U postgres'
+alias do-k8s-generate-data='PGPASSWORD=$(pulumi stack output pgpassword --show-secrets) psql -h 127.0.0.1 -p 5432 -U postgres -f ./misc/generate_data.sql'
+alias do-k8s-trigger-backup='pulumi stack output kubeconfig --show-secrets > /tmp/kube.yml && KUBECONFIG=/tmp/kube.yml kubectl create job --from=cronjob/backup-pg-default-cluster pg-backup-job'
